@@ -1,4 +1,5 @@
 version: 0.0.1
 folder_path: plugins/yolo_pose_plugin
 type: plugin
-requirements: []
+requirements:
+  - https://github.com/AI-Driven-Highspeed-Development/CV2-Visualization-Plugin.git

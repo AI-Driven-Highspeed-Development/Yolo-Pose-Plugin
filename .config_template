@@ -1,0 +1,6 @@
+{
+    "yolo_pose_plugin": {
+        "model_name": "yolov8n-pose.pt",
+        "confidence_threshold": 0.5
+    }
+}
