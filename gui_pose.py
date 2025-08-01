@@ -1,13 +1,20 @@
 import cv2
 import numpy as np
-from typing import Tuple
+from typing import Tuple, Optional, Union, Callable
 
 from plugins.cv2_visualization_plugin.gui_component import GuiComponent
 from plugins.yolo_pose_plugin.data_structure import PoseData, COCO_CONNECTIONS
 
 class GUIPose(GuiComponent):
     """A component to display pose estimation skeletons."""
-    def __init__(self, name: str, parent: GuiComponent, position: Tuple[int, int] = (0, 0), width: int = 640, height: int = 480):
+    def __init__(
+        self, 
+        name: str, 
+        parent: Optional[GuiComponent] = None, 
+        position: Tuple[int, int] = (0, 0), 
+        width: Union[int, Callable[[int], int], str] = 640, 
+        height: Union[int, Callable[[int], int], str] = 480
+    ):
         """Initializes the component."""
         super().__init__(name, width, height, parent, position)
         self.pose_data: PoseData | None = None
