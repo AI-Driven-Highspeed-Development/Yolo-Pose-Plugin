@@ -1,16 +1,29 @@
 {
-    "module_name": "snack_case_module_name",
+    "module_name": "yolo_pose_plugin",
     "module_description": {
-        "overview": "This is a brief overview of the module.",
+        "overview": "A comprehensive human pose estimation plugin that uses YOLO (You Only Look Once) models to detect and track human poses in real-time. Provides structured pose data with joint coordinates, confidence scores, and visualization components.",
         "key_features": [
-            "feature by list",
-            "can have multiple items"
+            "Real-time human pose detection using ultralytics YOLO models",
+            "COCO keypoint format with 17 anatomical landmarks",
+            "Configurable confidence thresholds and model selection",
+            "Structured data output with Joint, Skeleton, and PoseData classes",
+            "GUI visualization component for overlay rendering",
+            "Normalized coordinate system for resolution independence",
+            "Multiple person detection with bounding box information"
         ]
     },
     "usage_examples": {
-        "example_n": "one of the usage example, can have 1 - 10, base on how complex the module is"
+        "basic_pose_detection": "api = YoloPoseApi(); pose_data = api.detect_poses(frame)",
+        "gui_visualization": "gui_pose = GUIPose('pose_overlay'); gui_pose.set_pose_data(pose_data); gui_pose.draw()",
+        "confidence_filtering": "Configure confidence_threshold in config to filter low-confidence detections",
+        "multi_person_analysis": "Access multiple skeletons via pose_data.skeletons list for crowd analysis",
+        "joint_access": "skeleton.joints[0] # Access nose keypoint; joint.x, joint.y # Normalized coordinates"
     },
     "warning": {
-        "example_warning_n": "one of the warning, can have 0 - 10, only if applicable, and only project / module specific, not general ones like 'python dependency installation' etc."
+        "model_download": "YOLO models are downloaded automatically on first use - ensure internet connectivity and sufficient disk space",
+        "gpu_memory": "Large YOLO models (yolov8x-pose.pt) require significant GPU memory - adjust model size based on hardware",
+        "confidence_tuning": "Default confidence threshold (0.5) may need adjustment based on lighting conditions and use case",
+        "coordinate_normalization": "Joint coordinates are normalized (0-1) - multiply by frame dimensions for pixel coordinates",
+        "realtime_performance": "Performance depends on model size and hardware - consider yolov8n-pose.pt for real-time applications"
     }
 }
