@@ -18,11 +18,11 @@ class YoloPoseApi:
         self.config_manager = ConfigManager()
         
         # Get config with defaults from the ConfigManager
-        plugin_config = getattr(self.config_manager.config, 'yolo_pose_plugin', None)
+        plugin_config = self.config_manager.config.yolo_pose_plugin
         
-        self.model_name = getattr(plugin_config, 'model_name', 'yolov8n-pose.pt')
-        self.confidence_threshold = float(getattr(plugin_config, 'confidence_threshold', 0.5))
-        
+        self.model_name = plugin_config.model_name
+        self.confidence_threshold = plugin_config.confidence_threshold
+
         try:
             self.model = YOLO(self.model_name)
         except Exception as e:
